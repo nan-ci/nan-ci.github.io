@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link id="favicon" rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA1ElEQVR4AWJwL/ABlF8HGAwDQRiFQWAB9G57nblQc5eeqM1iqVamnXyhaPiBse+JbGbmcLYnRugMhN9HRMLhKIFwl0C4SyDcJRR+GxEJhV9GRILgs04kGK4SCHcJhLuEvvZlRCQUvm65igTBZ51IMFwlpgDBQSJmQdThLBFvH2EVDhKxdw1bET5Aa1GiJT+iMnz5piZlCLxWWxfo2YFF4e7tOIF/kAgfSHJ4JhFnjWQ9uVZ717bTSFZou2mbBoFCzweJI/D2An+WaL9fzf5iOT1zPX8AUeOdYxlrDIoAAAAASUVORK5CYII=">
+  <style type="text/css">
+    @font-face {
+  font-family: NaN;
+  src: url('data:font/woff2;base64,d09GMgABAAAAAALoAA0AAAAABpQAAAKSAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cGh4GYACCZhEICoIoggQLEAABNgIkAxwEIAWDGwc/G3sFyC4OTLw+ihHJzedGbeOF8OA7IfHw/Fq/c9/M7nyx9DHVaqJNxEMhUgoVmnmGKj7+P/u5+yZu6WuaNhNEbeKR0Gh+uoZGJhQiRDKZIil529D1nMfl9C2vtNxBx0Y7MIqKHH7qJrdEs8mJhQmE8BSGC8fGANPOA6vzNXRMkUwCK8Ksne/KQPlYLPrhB0m7DBSr0SgEPGvbagZ4UWfTeGtCA1pBEkJVyJGQpQN0o0J6kJ7gGiXHFyOiFvMKmVORdVmi7O07w6sgIJ6mQFeEDBk6IrCWVKAjmZmgQY0kF7qaslv+K0sQT1Mqq0yZ0ACAkBFVIgMiIYFgQY674seq6MIQZakZFKAJVawEOwHkgEAIIWWEtw4004RrSLtJK62LRnV53WaNpF5D1GdLrpe8rPdecKL/qrs4VpaWP8ZUkCZ9jmexDT3XKdLieB97jGz8XXK8V3r5hNcDHvaebtqRGwB6Tpu93/0+bxvmaWdmqqnJX943zVPPNv7Zu5T3pK8+xf92H2RsmjjMZK6VleZdt8cuDOXP5/xsUA/j43z0wgWydcqvb6T4n686L95qBZjNZtJrFsJ2fmoagAD6fF42etuY+1ZTn5uHdiin1ylQI4FghL8zcpBeCwBAkQNiEQDek34b30UoTCIBCdyhySMBQqEFgaTQF4FMYSoCucJSBCrqHUWgqnBbgDrtfclEXis0UaCEtYUybCiUY3OJilY7RFWT043rjPRkm30tl1parmDbhtbqygfmO3Rs4MKuLrxGC4PagBp7sUNdPafmEBFHgHMqmsgJbQCzSX1fyLFDV12Yu/oOHWj3TIRUgTUBB5dj17YNqvutfxzGAJKYUhBJioxtMEyhenwxaZ+IykNXp4IgiAAA') format('woff2'),
+  url('/assets/fonts/nan.woff') format('woff');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+  font-size: 62.5%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M5 0L0 5V0h5zm10 0h10L0 25V15L15 0zM0 55l5 5H0v-5zm0-10V35l25 25H15L0 45zM60 5l-5-5h5v5zm0 10v10L35 0h10l15 15zM45 60H35l25-25v10L45 60zm10 0l5-5v5h-5zM30 5l25 25-5 5-20-20-20 20-5-5L30 5zm0 40l5 5-5 5-5-5 5-5zm0-20l15 15-5 5-10-10-10 10-5-5 15-15z"/></svg>');
+  background-size: 20px;
+  background-position: center 20px;
+  background-color: #111;
+  background-attachment: fixed;
+  color: #ccc;
+}
+
+.loaded, .loaded button {
+  font-family: 'Zilla Slab';
+}
+
+body {
+  height: 100%;
+  font-size: 20px;
+  font-family: Times, serif;
+}
+
+button {
+  padding: 0.5em 1em;
+  font-size: 20px;
+  border: 2px solid #666;
+  color: #ccc;
+  background: #222;
+  border-radius: 0.4em;
+  margin: 0.4em;
+  user-select: none;
+  font-family: Times, serif;
+}
+
+button:focus {
+  outline: none;
+  border-color: #777FFF;
+}
+
+button:active {
+  background: #111;
+  color: #888;
+}
+
+.title {
+  font-size: 100px;
+  font-family: NaN;
+  font-weight: 900;
+}
+
+.main {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.hide {
+  display: none;
+}
+#logo {
+  margin-top: 1em;
+}
+
+#description {
+  color: #FFF777;
+  padding: 0 8% 2em;
+  text-align: center;
+  max-width: 500px;
+  letter-spacing: 1px;
+}
+
+#inscription {
+  text-align: center
+}
+
+#home {
+  background: radial-gradient(transparent, rgba(0, 0, 0, 0.5));
+}
+
+#menu {
+  background: radial-gradient(rgba(0, 0, 0, 0.3), black);
+}
+
+p {
+  margin-bottom: 0.5em;
+}
+
+header, footer {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.4em;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: #777FFF;
+  margin: 0 1em;
+  line-height: 1;
+  font-style: italic;
+  font-weight: 100;
+  letter-spacing: 1px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: overline;
+}
+
+@media only screen and (max-width: 400px) {
+  .title {
+    font-size: 60px;
+  }
+  body {
+    font-size: 16px;
+  }
+  #description {
+    padding: 0 8% 1em;
+  }
+}
+  </style>
+  <title>NaN</title>
+</head>
+<body class="loaded">
+  <div id="home" class="main">
+    <header></header>
+    <div id="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+        <defs>
+          <radialGradient id="g" fy="0">
+            <stop stop-color="#F7AEF8"/>
+            <stop offset="100%" stop-color="#777FFF"/>
+          </radialGradient>
+        </defs>
+        <path fill="url(#g)" d="M25 0L0 25l5 5 20-20 20 20 5-5M25 40l-5 5 5 5 5-5M25 20L10 35l5 5 10-10 10 10 5-5"/>
+      </svg>
+      <span class="title">NaN</span>
+    </div>
+    <div id="description">École de programmation informatique gratuite, atypique et open-source</div>
+    <div id="inscription">
+      <p>Ouverte à tous les Ivoiriens de&nbsp;18&nbsp;à&nbsp;25&nbsp;ans</p>
+      <button onclick="(document.getElementById('menu').classList.remove('hide'), document.getElementById('home').classList.add('hide'))">Ça m'intéresse</button>
+    </div>
+    <footer>
+      <a href="/page/0/index.html">Blog</a>
+      <a href="https://www.facebook.com/ecolenan">Facebook</a>
+      <a href="https://github.com/nan-ci">Github</a>
+    </footer>
+  </div>
+  <div id="menu" class="main hide">
+    <header></header>
+    <div>
+      <button onclick="(document.getElementById('home').classList.remove('hide'), document.getElementById('menu').classList.add('hide'))">back</button>
+    </div>
+    <footer>
+    </footer>
+  </div>
+  <link rel="stylesheet" type="text/css" href="/assets/css/font.css" async>
+</body>
+</html>

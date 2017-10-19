@@ -1,0 +1,46 @@
+.site-content article {
+  padding: 20px 0 40px 0;
+}
+
+.article-header {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.article-header h1 a {
+  color: #CCC;
+  letter-spacing: 2px;
+}
+
+.article-header h1 a:hover {
+  color: #777FFF;
+}
+
+.entry-content {
+  word-wrap: break-word;
+  margin: 0;
+  background: #111;
+  padding: 52px;
+  border: 2px solid #000;
+  color: #CCC;
+}
+
+.article-footer {
+  font-size: 14px;
+  font-weight: 100;
+  color: #FFF777;
+  text-align: right;
+  display: block;
+}
+
+@media only screen and (max-width: 1200px) {
+  .article-footer {
+    border-bottom: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .entry-title {
+    font-size: 1.9em;
+  }
+}
