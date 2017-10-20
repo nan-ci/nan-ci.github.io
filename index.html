@@ -11,6 +11,29 @@
   src: url('data:font/woff2;base64,d09GMgABAAAAAALoAA0AAAAABpQAAAKSAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cGh4GYACCZhEICoIoggQLEAABNgIkAxwEIAWDGwc/G3sFyC4OTLw+ihHJzedGbeOF8OA7IfHw/Fq/c9/M7nyx9DHVaqJNxEMhUgoVmnmGKj7+P/u5+yZu6WuaNhNEbeKR0Gh+uoZGJhQiRDKZIil529D1nMfl9C2vtNxBx0Y7MIqKHH7qJrdEs8mJhQmE8BSGC8fGANPOA6vzNXRMkUwCK8Ksne/KQPlYLPrhB0m7DBSr0SgEPGvbagZ4UWfTeGtCA1pBEkJVyJGQpQN0o0J6kJ7gGiXHFyOiFvMKmVORdVmi7O07w6sgIJ6mQFeEDBk6IrCWVKAjmZmgQY0kF7qaslv+K0sQT1Mqq0yZ0ACAkBFVIgMiIYFgQY674seq6MIQZakZFKAJVawEOwHkgEAIIWWEtw4004RrSLtJK62LRnV53WaNpF5D1GdLrpe8rPdecKL/qrs4VpaWP8ZUkCZ9jmexDT3XKdLieB97jGz8XXK8V3r5hNcDHvaebtqRGwB6Tpu93/0+bxvmaWdmqqnJX943zVPPNv7Zu5T3pK8+xf92H2RsmjjMZK6VleZdt8cuDOXP5/xsUA/j43z0wgWydcqvb6T4n686L95qBZjNZtJrFsJ2fmoagAD6fF42etuY+1ZTn5uHdiin1ylQI4FghL8zcpBeCwBAkQNiEQDek34b30UoTCIBCdyhySMBQqEFgaTQF4FMYSoCucJSBCrqHUWgqnBbgDrtfclEXis0UaCEtYUybCiUY3OJilY7RFWT043rjPRkm30tl1parmDbhtbqygfmO3Rs4MKuLrxGC4PagBp7sUNdPafmEBFHgHMqmsgJbQCzSX1fyLFDV12Yu/oOHWj3TIRUgTUBB5dj17YNqvutfxzGAJKYUhBJioxtMEyhenwxaZ+IykNXp4IgiAAA') format('woff2'),
   url('/assets/fonts/nan.woff') format('woff');
 }
+@font-face {
+  font-family: 'Zilla Slab';
+  src: local('Zilla Slab Bold'), local('ZillaSlab-Bold'), url('/assets/fonts/ZillaSlabBold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Zilla Slab';
+  src: local('Zilla Slab'), local('ZillaSlab-Regular'), url('/assets/fonts/ZillaSlabRegular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Zilla Slab';
+  src: local('Zilla Slab Light Italic'), local('ZillaSlab-LightItalic'), url('/assets/fonts/ZillaSlabLightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
 
 * {
   margin: 0;
@@ -42,23 +65,24 @@ body {
 button {
   padding: 0.5em 1em;
   font-size: 20px;
-  border: 2px solid #666;
-  color: #ccc;
-  background: #222;
-  border-radius: 0.4em;
   margin: 0.4em;
   user-select: none;
   font-family: Times, serif;
+  background: #777FFF;
+  border: 4px solid black;
+  border-radius: 0;
+  color: black;
+  font-weight: bold;
 }
 
 button:focus {
   outline: none;
-  border-color: #777FFF;
+  box-shadow: 0 0 0 2px #777FFF;
 }
 
 button:active {
-  background: #111;
-  color: #888;
+  background: #5156a9;
+  color: #15172d;
 }
 
 .title {
@@ -94,7 +118,7 @@ button:active {
 }
 
 #home {
-  background: radial-gradient(transparent, rgba(0, 0, 0, 0.5));
+  background: radial-gradient(transparent, rgba(0, 0, 0, 0.7));
 }
 
 #menu {
@@ -140,6 +164,11 @@ a:hover {
     padding: 0 8% 1em;
   }
 }
+@keyframes hue-rotate {
+  0% { filter: hue-rotate(0) }
+  50% { filter: hue-rotate(120deg) }
+  100% { filter: hue-rotate(0) }
+}
   </style>
   <title>NaN</title>
 </head>
@@ -172,11 +201,19 @@ a:hover {
   <div id="menu" class="main hide">
     <header></header>
     <div>
+      <form action="https://nan.us17.list-manage.com/subscribe/post?u=289969fb55806b7d2e2b37001&amp;id=13731171a2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+        <label for="mce-EMAIL">email</label>
+        <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="email address" required>
+        <div style="position: absolute; left: -9000px;" aria-hidden="true">
+          <input type="text" name="b_289969fb55806b7d2e2b37001_13731171a2" tabindex="-1" value="">
+        </div>
+        <input type="submit" value="Envoyer" name="subscribe">
+
+      </form>
       <button onclick="(document.getElementById('home').classList.remove('hide'), document.getElementById('menu').classList.add('hide'))">back</button>
     </div>
     <footer>
     </footer>
   </div>
-  <link rel="stylesheet" type="text/css" href="/assets/css/font.css" async>
 </body>
 </html>
