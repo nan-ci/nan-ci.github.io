@@ -170,6 +170,12 @@ a:hover {
   100% { filter: hue-rotate(0) }
 }
   </style>
+  <script type="text/javascript">
+    function _(id) { return document.getElementById(id) }
+    function hide(id) { return _(id).classList.remove('hide') }
+    function show(id) { return _(id).classList.add('hide') }
+    function focus(id) { return setTimeout(function () { _(id).focus() }) }
+  </script>
   <title>NaN</title>
 </head>
 <body class="loaded">
@@ -190,10 +196,10 @@ a:hover {
     <div id="description">École de programmation informatique gratuite, atypique et open-source</div>
     <div id="inscription">
       <p>Ouverte à tous les Ivoiriens de&nbsp;18&nbsp;à&nbsp;25&nbsp;ans</p>
-      <button onclick="(document.getElementById('menu').classList.remove('hide'), document.getElementById('home').classList.add('hide'))">Ça m'intéresse</button>
+      <button id="go" onclick="(show('menu'), hide('home'), focus('email'))">Ça m'intéresse</button>
     </div>
     <footer>
-      <a href="/page/0/index.html">Blog</a>
+      <a href="/blog">Blog</a>
       <a href="https://www.facebook.com/ecolenan">Facebook</a>
       <a href="https://github.com/nan-ci">Github</a>
     </footer>
@@ -202,18 +208,34 @@ a:hover {
     <header></header>
     <div>
       <form action="https://nan.us17.list-manage.com/subscribe/post?u=289969fb55806b7d2e2b37001&amp;id=13731171a2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-        <label for="mce-EMAIL">email</label>
-        <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="email address" required>
+        <label for="email">Votre adresse email</label>
+        <input type="email" value="" name="email" id="email" placeholder="exemple@gmail.com" required>
         <div style="position: absolute; left: -9000px;" aria-hidden="true">
           <input type="text" name="b_289969fb55806b7d2e2b37001_13731171a2" tabindex="-1" value="">
         </div>
         <input type="submit" value="Envoyer" name="subscribe">
-
+        <div>
+          <label>Je veut recevoir des emails pour suivre le projet (max 1 / semaine)</label>
+          <input type="checkbox" name="sub">
+        </div>
       </form>
-      <button onclick="(document.getElementById('home').classList.remove('hide'), document.getElementById('menu').classList.add('hide'))">back</button>
+      <button onclick="(show('home'), hide('menu'), focus('go'))">back</button>
     </div>
     <footer>
     </footer>
   </div>
+  <script type="text/javascript">
+    let whitelist = new Set()
+    let blacklist = whitelist
+    const emailEl = _('email')
+    const parseList = list => new Set(list.split('/n'))
+    fetch('/assets/misc/domain-list.txt')
+      .then(r => r.text())
+      .then(text => text.split('#disposable#').map(parseList))
+      .then(([ w, b ]) => whitelist = w, blacklist = b)
+    setInterval(() => {
+      emailEl
+    }, 48)
+  </script>
 </body>
 </html>
