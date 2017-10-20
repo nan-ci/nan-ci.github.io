@@ -293,6 +293,28 @@ a h1.site-title {
   display: block;
 }
 
+a.source {
+  float: left;
+}
+
+#nav-below .nav a, #nav-below .nav span {
+  padding: 0 0.15em;
+}
+
+#nav-below .nav span {
+  color: #333;
+}
+
+#nav-below .nav {
+  padding: 0 0.2em;
+}
+
+#nav-below {
+  display: flex;
+  color: #AAA;
+  justify-content: center;
+}
+
 @media only screen and (max-width: 1200px) {
   .site {
     margin-top: 40px;
@@ -316,7 +338,6 @@ a h1.site-title {
 
   .site-navigation {
     margin-top: 0;
-    border-top: 1px solid #333;
   }
 
   .site-navigation ul {
@@ -357,6 +378,10 @@ a h1.site-title {
   }
   .entry-title {
     font-size: 1.9em;
+  }
+
+  #nav-below .nav a, #nav-below .nav span {
+    padding: 0 0.6em;
   }
 }
 
