@@ -102,9 +102,27 @@
     </footer>
   </div>
 
+<script type="text/javascript">
+// handle images names
+var imgExt = (function (elem) {
+  var imgExtParts = []
+  window.devicePixelRatio > 1 && imgExtParts.push('-x2')
+    imgExtParts.push((elem.getContext
+      && elem.getContext('2d')
+      && elem.toDataURL('image/webp').indexOf('data:image/webp') === 0)
+        ? '.webp' : '.jpg')
+  return imgExtParts.join('')
+})(document.createElement('canvas'))
+Array.prototype.slice.call(document.getElementsByClassName('img'), 0)
+  .forEach(function (el) {
+    el.style.backgroundSize = 'cover'
+    el.style.backgroundImage = 'url("/assets/images/'+ el.dataset.src + imgExt +'")'
+  })
+</script>
   
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>  <!--
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <!--
   <link rel="stylesheet" href="/assets/css/gitment.css">
   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
   -->
