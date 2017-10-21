@@ -82,15 +82,15 @@
           <h1 class="entry-title"><a href=/2017/10/06/hello>Une École Atypique</a></h1>
         </header>
         <div class="entry-content preview">
-          <p><strong>Abidjan</strong>, Cote d’Ivoire, c’est ici que débute notre aventure, née de la rencontre entre Keffa, un entrepreneur ivoirien et 3 anciens étudiants de <a href="http://www.42.fr">42</a>.</p>
+          <p><strong>Abidjan</strong>, Côte d’Ivoire, c’est ici que débute notre aventure, née de la rencontre entre Keffa, un entrepreneur ivoirien et 3 anciens étudiants de <a href="http://www.42.fr">42</a>.</p>
 <p>Keffa veut donner aux Ivoiriens l’opportunité d’apprendre la programmation dans les meilleures conditions possibles.</p>
 <p>Quant à nous, on a plein d’idées pour <strong>améliorer l’enseignement</strong>, et l’envie de les mettre en pratique, d’en explorer les possibilités.</p>
 <p>On a donc associé nos moyens, nos compétences et nos objectifs, pour monter ensemble une <strong>école de programmation</strong>.</p>
-<p><img src="https://cdn-images-1.medium.com/max/1600/1*F-3iHaaX1pe5j5vWRpwFEQ.jpeg" alt=""></p>
-<h2>On à rêvé d’une école Open Source</h2>
-<p>C’est un drôle  de monde ou on a besoin de convaincre les écoles que partager des information, au lieu de les occultées est une bonne chose.</p>
-<p>On ne devrais pas de se protéger de la curiosité mais l’encourager.</p>
-<p>On à rêver d’une école a l’image de nos outils, libre et communautaire. Sans oublier, <strong>gratuite.</strong></p>
+<p><div class="img" data-src="mac-blister" style="background-color: #777371;height:444px;width:592px"></div></p>
+<h2>On a rêvé d’une école Open Source</h2>
+<p>C’est un drôle de monde ou on a besoin de convaincre les écoles que partager des informations, au lieu de les occulter est une bonne chose.</p>
+<p>On ne devrait pas se protéger de la curiosité mais l’encourager.</p>
+<p>On a rêvé d’une école à l’image de nos outils, libre et communautaire. Sans oublier, <strong>gratuite.</strong></p>
 
           <div class="read-more" onclick="this.parentElement.classList.remove('preview')">read more</div>
         </div>
@@ -119,6 +119,23 @@
   </div>
 
   
+<script type="text/javascript">
+// handle images names
+var imgExt = (function (elem) {
+  var imgExtParts = []
+  window.devicePixelRatio > 1 && imgExtParts.push('-x2')
+    imgExtParts.push((elem.getContext
+      && elem.getContext('2d')
+      && elem.toDataURL('image/webp').indexOf('data:image/webp') === 0)
+        ? '.webp' : '.jpg')
+  return imgExtParts.join('')
+})(document.createElement('canvas'))
+Array.prototype.slice.call(document.getElementsByClassName('img'), 0)
+  .forEach(function (el) {
+    el.style.backgroundSize = 'cover'
+    el.style.backgroundImage = 'url("/assets/images/'+ el.dataset.src + imgExt +'")'
+  })
+</script>
   
 </body>
 </html>
