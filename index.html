@@ -1,4 +1,23 @@
 <!DOCTYPE html>
+<!--                  .
+                     d8b
+                   d88888b
+                 d888Y Y888b
+               d888Y  .  Y888b
+             d888Y   d8b   Y888b
+           d888Y   d88888b   Y888b
+            ""   d888Y Y888b   ""
+               d888Y  .  Y888b
+                ""   d8b   ""
+                   d88888b
+   8888b   88888     Y8b     8888b   88888
+    8888b   888       '       8888b   888
+    88888b  888               88888b  888
+    888Y88b 888    88888b.    888Y88b 888
+    888 Y88b888    "   "88b   888 Y88b888
+    888  Y88888   .d8888888   888  Y88888
+    888   Y8888   888   888   888   Y8888
+   88888   Y888   "Y88888"88 88888   Y888 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -46,14 +65,16 @@
   margin: 0;
   padding: 0;
 }
+.pattern, html {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M5 0L0 5V0h5zm10 0h10L0 25V15L15 0zM0 55l5 5H0v-5zm0-10V35l25 25H15L0 45zM60 5l-5-5h5v5zm0 10v10L35 0h10l15 15zM45 60H35l25-25v10L45 60zm10 0l5-5v5h-5zM30 5l25 25-5 5-20-20-20 20-5-5L30 5zm0 40l5 5-5 5-5-5 5-5zm0-20l15 15-5 5-10-10-10 10-5-5 15-15z"/></svg>');
+  background-size: 20px;
+  background-position: center 20px;
+}
 
 html {
   height: 100%;
   overflow-y: scroll;
   font-size: 62.5%;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M5 0L0 5V0h5zm10 0h10L0 25V15L15 0zM0 55l5 5H0v-5zm0-10V35l25 25H15L0 45zM60 5l-5-5h5v5zm0 10v10L35 0h10l15 15zM45 60H35l25-25v10L45 60zm10 0l5-5v5h-5zM30 5l25 25-5 5-20-20-20 20-5-5L30 5zm0 40l5 5-5 5-5-5 5-5zm0-20l15 15-5 5-10-10-10 10-5-5 15-15z"/></svg>');
-  background-size: 20px;
-  background-position: center 20px;
   background-color: #111;
   background-attachment: fixed;
   color: #ccc;
@@ -280,7 +301,7 @@ input::placeholder {
   background: #5156A9;
 }
 /* fin du css de merde */
-form i, form label {
+.ui, form i, form label {
   user-select: none;
 }
 
@@ -294,20 +315,31 @@ input[type="checkbox"] + label:hover:before, input[type="submit"]:hover, button:
   background: linear-gradient(#D09FFB, #9C8CFD);
 }
 
-input[type="submit"] {
-  margin-top: 4em;
+#submit-feedback {
+  min-height: 4em;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 1em;
+  font-size: 16px;
+  font-style: italic;
+  color: #FFF777;
+  justify-content: center;
 }
-input[type="submit"]:active, button:active {
+
+input[type="submit"].wait, input[type="submit"]:active, button:active {
   background: #5156A9;
   color: #15172d;
 }
 
+#submit-feedback.error, .error {
+  color: #FF7777;
+}
   </style>
   <script type="text/javascript">
     function _(id) { return document.getElementById(id) }
     function hide(id) { return _(id).classList.add('hide') }
     function show(id) { return _(id).classList.remove('hide') }
-    function focus(id) { return setTimeout(function () { _(id).focus() }) }
+    function focusEl(id) { return setTimeout(function () { _(id).focus() }, 16) }
   </script>
   <title>NaN</title>
 </head>
@@ -329,7 +361,7 @@ input[type="submit"]:active, button:active {
     <div id="description">École de programmation informatique gratuite, atypique et open-source</div>
     <div id="inscription">
       <p>Ouverte à tous les Ivoiriens de&nbsp;18&nbsp;à&nbsp;25&nbsp;ans</p>
-      <button id="go" onclick="(show('menu'), hide('home'), focus('email'))">Ça m'intéresse</button>
+      <button id="go" onclick="(show('menu'), hide('home'), focusEl('email'))">Ça m'intéresse</button>
     </div>
     <footer>
       <a href="/blog">Blog</a>
@@ -337,24 +369,22 @@ input[type="submit"]:active, button:active {
       <a href="https://github.com/nan-ci">Github</a>
     </footer>
   </div>
-  <div id="menu" onclick="event.target === this && (show('home'), hide('menu'), focus('go'))" class="main hide">
+  <div id="menu" onclick="event.target === this && (show('home'), hide('menu'), focusEl('go'))" class="main hide">
     <header></header>
     <div>
-      <form class="block" action="https://nan.us17.list-manage.com/subscribe/post?u=289969fb55806b7d2e2b37001&amp;id=13731171a2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+      <form class="block">
         <label for="email">Votre adresse email</label>
         <input type="email" value="" name="email" id="email" placeholder="exemple@mail.com" required>
-        <div style="position: absolute; left: -9000px;" aria-hidden="true">
-          <input type="text" name="b_289969fb55806b7d2e2b37001_13731171a2" tabindex="-1" value="">
-        </div>
         <div class="center">
           <input type="checkbox" name="sub" id="sub">
           <label for="sub">Je veux recevoir des emails pour suivre le projet</label>
           <i>(moins d'un par semaine)</i>
         </div>
-        <input type="submit" value="Envoyer" name="subscribe">
+        <div id="submit-feedback" class="ui">chargement du script</div>
+        <input type="submit" value="Envoyer" name="subscribe" id="submit">
       </form>
       <div class="links top-links">
-        <button onclick="(show('home'), hide('menu'), focus('go'))">Retour</button>
+        <button onclick="(show('home'), hide('menu'), focusEl('go'))">Retour</button>
         <a href="/blog">...lire le blog pour en apprendre plus</a>
       </div>
     </div>
@@ -365,7 +395,7 @@ input[type="submit"]:active, button:active {
   document.body.appendChild((function (script) {
     script.type = 'text/javascript'
     try {
-      eval('([ a, b ]) => ({ a, b})')
+      eval('([ a, b ], ...args) => ({ a, b})')
       script.src = '/assets/js/mail.js'
     } catch (e) {
       script.src = '/assets/js/mail-legacy.js'
