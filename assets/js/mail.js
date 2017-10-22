@@ -6,12 +6,12 @@ const submitEl = _('submit')
 const feedback = _('submit-feedback')
 const apiDomain = 'https://api.nan.ci'
 const reject = x => Promise.reject(x)
-  // -> Ofc you CAN'T just pass Promise.reject, fuck you oop, fuck, you.
+  // -> Ofc you CAN'T just pass Promise.reject... OOP is great, they say...
 
 const toJSON = r => r.status !== 200 ? r.json().then(reject) : r.json()
 const headers = {
   'Accept': 'application/json, text/plain, */*',
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
 }
 
 const api = method => url => data =>
@@ -121,4 +121,4 @@ submitEl.onclick = () => {
   return false // disable classic form post
 }
 
-feedback.textContent = ' '
+say('')

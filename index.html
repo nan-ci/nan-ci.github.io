@@ -372,7 +372,7 @@ input[type="submit"].wait, input[type="submit"]:active, button:active {
   <div id="menu" onclick="event.target === this && (show('home'), hide('menu'), focusEl('go'))" class="main hide">
     <header></header>
     <div>
-      <form class="block">
+      <form class="block" method="POST" action="https://nan.ci/email">
         <label for="email">Votre adresse email</label>
         <input type="email" value="" name="email" id="email" placeholder="exemple@mail.com" required>
         <div class="center">
@@ -402,6 +402,12 @@ input[type="submit"].wait, input[type="submit"]:active, button:active {
     }
     return script
   })(document.createElement('script')))
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108473312-1"></script>
+  <script>
+    window.dataLayer || (window.dataLayer = [])
+    function gtag(){dataLayer.push(arguments)}
+    gtag('js',new Date(),'config','UA-108473312-1')
   </script>
 </body>
 </html>
