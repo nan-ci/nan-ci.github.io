@@ -4,7 +4,6 @@ const emailEl = _('email')
 const subEl = _('sub')
 const submitEl = _('submit')
 const feedback = _('submit-feedback')
-const apiDomain = 'https://api.nan.ci'
 const reject = x => Promise.reject(x)
   // -> Ofc you CAN'T just pass Promise.reject... OOP is great, they say...
 
@@ -15,7 +14,7 @@ const headers = {
 }
 
 const api = method => url => data =>
-  fetch(`${apiDomain}/${url}`, { body: JSON.stringify(data), headers, method })
+  fetch(`/api/${url}`, { body: JSON.stringify(data), headers, method })
     .then(toJSON)
 
 const levenshtein = (a, b) => {
