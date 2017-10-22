@@ -14,7 +14,7 @@ const headers = {
 }
 
 const api = method => url => data =>
-  fetch(`/api/${url}`, { body: JSON.stringify(data), headers, method })
+  fetch(`https://api.nan.ci/${url}`, { body: JSON.stringify(data), headers, method })
     .then(toJSON)
 
 const levenshtein = (a, b) => {
@@ -112,6 +112,7 @@ submitEl.onclick = () => {
   submitEl.classList.add('wait')
   api.email({ email: emailEl.value, sub: subEl.checked })
     .then(() => window.location.pathname = '/blog', err => {
+      console.error(err)
       sayError(err.message)
       emailEl.select()
       submitEl.classList.remove('wait')
