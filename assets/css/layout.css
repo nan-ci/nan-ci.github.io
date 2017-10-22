@@ -339,6 +339,10 @@ a.source {
   justify-content: center;
 }
 
+.img, .hljs {
+  border: 2px solid black;
+}
+
 @media only screen and (max-width: 1200px) {
   .site {
     margin-top: 40px;
