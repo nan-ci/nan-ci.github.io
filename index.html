@@ -398,7 +398,12 @@ input[type="submit"].wait, input[type="submit"]:active, button:active {
       eval('([ a, b ], ...args) => ({ a, b})')
       script.src = '/assets/js/mail.js'
     } catch (e) {
-      script.src = '/assets/js/mail-legacy.js'
+      script.src = 'https://cdn.polyfill.io/v2/polyfill.min.js'
+      script.onload = function () {
+        legacyScript = document.createElement('script')
+        legacyScript.src = '/assets/js/mail-legacy.js'
+        document.body.appendChild(legacyScript)
+      }
     }
     return script
   })(document.createElement('script')))
