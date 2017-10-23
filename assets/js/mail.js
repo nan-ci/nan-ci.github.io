@@ -92,6 +92,7 @@ const isInputValid = strict => {
   }
   if (strict) return true // skip domain sugestion
   const nearest = findNearestPopularDomain(domain)
+  if (!nearest) return true // domains aren't loaded yet, sloooow network
   if ((domain !== nearest.value) && nearest.score < 5) {
     return say('c\'est pas plutôt '+ base + nearest.value +' ?')
   }
@@ -105,20 +106,27 @@ emailEl.onchange = () => {
   preventSubmit = false
 }
 
-submitEl.onclick = () => {
-  if (preventSubmit || submitEl.classList.contains('wait')) return false
+const submitForm = () => {
+  if (preventSubmit) return preventSubmit = false
+  if (submitEl.classList.contains('wait')) return feedback.textContent += '.'
   if (!isInputValid(true)) return emailEl.select()
   say('verification...')
   submitEl.classList.add('wait')
   api.email({ email: emailEl.value, sub: subEl.checked })
-    .then(() => window.location.pathname = '/blog', err => {
+    .then(() => {
+      const gif = document.createElement('img')
+      gif.src = '/assets/misc/brand-rambo.gif'
+      gif.style.width = '100%'
+      feedback.appendChild(gif)
+      setTimeout(() => (hide('menu'), show('home')), 3456)
+    }, err => {
       console.error(err)
       sayError(err.message)
       emailEl.select()
       submitEl.classList.remove('wait')
     })
-
-  return false // disable classic form post
 }
+
+submitEl.onclick = () => (submitForm(), false) // disable classic form post
 
 say('')
