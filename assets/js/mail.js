@@ -117,8 +117,8 @@ const submitForm = () => {
       const gif = document.createElement('img')
       gif.src = '/assets/misc/brand-rambo.gif'
       gif.style.width = '100%'
+      say('')
       feedback.appendChild(gif)
-      setTimeout(() => (hide('menu'), show('home')), 3456)
     }, err => {
       console.error(err)
       sayError(err.message)
