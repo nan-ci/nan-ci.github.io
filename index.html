@@ -110,6 +110,10 @@ label[for="email"] {
   padding-left: 16px;
 }
 
+#beta {
+  background: #FFF777;
+}
+
 .title {
   font-size: 100px;
   font-family: NaN;
@@ -342,6 +346,7 @@ input[type="submit"].wait, input[type="submit"]:active, button:active {
     function hide(id) { return _(id).classList.add('hide') }
     function show(id) { return _(id).classList.remove('hide') }
     function focusEl(id) { return setTimeout(function () { _(id).focus() }, 16) }
+    function openTab(url) { window.open(url, '_blank') }
   </script>
   <title>NaN</title>
 </head>
@@ -364,6 +369,7 @@ input[type="submit"].wait, input[type="submit"]:active, button:active {
     <div id="inscription">
       <p>Ouverte à tous les Ivoiriens de&nbsp;18&nbsp;à&nbsp;25&nbsp;ans</p>
       <button id="go" onclick="(show('menu'), hide('home'), focusEl('email'))">Ça m'intéresse</button>
+      <button id="beta" onclick="(openTab('https://goo.gl/forms/70qj5fpa7kOZb8Nc2'))">Participer à la Beta!</button>
     </div>
     <footer>
       <a href="/blog">Blog</a>
@@ -418,5 +424,6 @@ input[type="submit"].wait, input[type="submit"]:active, button:active {
   gtag('config','UA-108473312-1')
   </script>
   <link rel="preload" href="/assets/misc/brand-rambo.gif" as="image">
+  <link rel="prerender" href="https://nan.ci/blog/">
 </body>
 </html>
